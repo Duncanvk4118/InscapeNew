@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Begin Header / Nav Section */
+
+header {
+  /* top: 50px; */
+  padding: 40px 0 0 0;
+  position: relative;
+  height: auto;
+  background: #fff;
+  color: #000;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.upper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 140px;
+}
+
+header img {
+  width: 60px;
+  height: 60px;
+}
+
+nav {
+  /* position: relative; */
+  background: #fff;
+  padding: 30px 0 50px 0;
+}
+
+nav ul {
+  align-items: center;
+  justify-content: center;
+  /* position: relative; */
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+nav ul li a {
+  border-right: 2px solid #000;
+  padding-right: 20px;
+}
+
+#lasta {
+  border: none;
+}
+
+/* End Header / Nav Section */
+
+.container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+/* Begin Information Section */
+
+.information {
+  padding: 50px;
+  position: absolute;
+  left: 40px;
+  width: 675px;
+  height: 65vh;
+  background: #e6e6e6;
+  border: 3px solid gray;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+
+.information .left {
+  position: relative;
+}
+
+.information .right {
+  width: 60%;
+}
+
+/* Eind Content */
+
+/* Begin Formulier */
+.formulier {
+  /* text-align: center; */
+  margin-left: auto;
+  position: absolute;
+  right: 30px;
+  height: 65vh;
+  width: 40%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.formulier h2 {
+  text-align: center;
+}
+
+input {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.name {
+  gap: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+p {
+  font-weight: 200;
+  font-size: 12px;
+}
+
+.name input {
+  width: 120%;
+}
+
+textarea {
+  font-size: 14px;
+  resize: none;
+  border: 2px solid #000;
+  width: 100%;
+}
+
+#headtext {
+  font-weight: bold;
+}
+
+/* End Formulier */
+
+/* Overeenkomsten */
+button {
+  width: 100px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid #000;
+  font-weight: bolder;
+  font-size: 14px;
+  box-shadow: #000 3px 3px 0;
+}
+
+#welcoming {
+  font-weight: 300;
+  font-size: 15px;
+  position: relative;
+  width: 200px;
+}

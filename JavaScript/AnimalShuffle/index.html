@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animal Shuffle</title>
+  </head>
+  <body>
+    <div id="container">
+      <img src="./Images/aap1.jpg" />
+      <img src="./Images/aap2.jpg" />
+      <img src="./Images/aap3.jpg" />
+      <img src="./Images/aap4.jpg" />
+      <img src="./Images/aap5.jpg" />
+      <img src="./Images/aap6.jpg" />
+      <img src="./Images/aap7.jpg" />
+      <img src="./Images/aap8.jpg" />
+      <img src="./Images/aap9.jpg" />
+    </div>
+    <script>
+      var plaatjes = document.getElementsByTagName("img");
+      var random = 0;
+
+      var randomNumbers = [];
+
+      while (randomNumbers.length < 9) {
+        random = Math.floor(Math.random() * 9) + 1;
+        if (randomNumbers.lastIndexOf(random) == -1) {
+          randomNumbers.push(random);
+        }
+      }
+
+      random = 0;
+      for (var plaatje in plaatjes) {
+        plaatjes[plaatje].src = "./Images/aap" + randomNumbers[random] + ".jpg";
+        random++;
+      }
+    </script>
+  </body>
+</html>

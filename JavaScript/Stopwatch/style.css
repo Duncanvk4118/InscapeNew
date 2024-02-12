@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.watch {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  width: 25%;
+  background: url(../../Images/JS/stw515_web.png) no-repeat;
+  background-size: contain;
+}
+
+#display {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  border: 2px solid #a8a8a8;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  height: 55px;
+  width: 121px;
+  position: absolute;
+  top: 90px;
+  left: 100px;
+}
+
+#btnStartStop {
+  position: absolute;
+  right: 45px;
+  top: 30px;
+  width: 40px;
+  height: 40px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+#btnReset {
+  position: absolute;
+  left: 47px;
+  top: 30px;
+  width: 40px;
+  height: 40px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+#btnLight {
+  position: absolute;
+  left: 102px;
+  top: 10px;
+  width: 40px;
+  height: 20px;
+  color: transparent;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

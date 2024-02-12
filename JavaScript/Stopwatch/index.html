@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch | Inscape</title>
+  </head>
+  <body>
+    <!-- <h2>The setPosay() Method</h2> -->
+    <div class="watch">
+      <div id="display"></div>
+      <button id="btnStartStop" onclick="fStop()"></button>
+      <button id="btnReset" onclick="fReset()"></button>
+      <button id="btnLight" onclick="fLight()"></button>
+    </div>
+
+    <a href="../../Pages/Assignments/index.html">Return</a>
+    <script>
+      var ssbutton = document.getElementById("btnStartStop");
+      let sec = 0;
+      let min = 0;
+      let start = 1;
+      let light = 0;
+      let mijnInterval = setInterval(secTeller, 1000);
+
+      function secTeller() {
+        sec = sec + 1;
+        document.getElementById("display").innerHTML =
+          min + ":" + sec + ":" + ms;
+        if (sec === 59) {
+          min++;
+          sec = -1;
+        }
+        start = 1;
+      }
+
+      function fStop() {
+        if (start === 1) {
+          start = 0;
+          clearInterval(mijnInterval);
+        } else if (start === 0) {
+          secTeller();
+          mijnInterval = setInterval(secTeller, 1000);
+        }
+      }
+      function fReset() {
+        start = 1;
+        fStop();
+        sec = 0;
+        min = 0;
+        ms = 0;
+        document.getElementById("display").innerHTML =
+          min + ":" + sec + ":" + ms;
+      }
+
+      function fLight() {
+        var displayer = document.getElementById("display");
+        if (light === 1) {
+          displayer.style.color = "#000";
+          displayer.style.background = "#fff";
+          light = 0;
+        } else if (light === 0) {
+          displayer.style.color = "#fff";
+          displayer.style.background = "#000";
+          light = 1;
+        }
+      }
+    </script>
+  </body>
+</html>
