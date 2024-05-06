@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSP2 base files</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section id="selecting">
+      <form onsubmit="event.preventDefault(); fStart();" id="base" method="get">
+        <img src="img/wereld.png" alt="" />
+        <input type="text" id="location" placeholder="Welke locatie?" />
+        <button type="submit" onclick="scrollToSection('result')">
+          Selecteer Locatie
+        </button>
+      </form>
+    </section>
+    <section id="result">
+      <!-- <img src="img/page2.jpg" alt="" /> -->
+      <div id="output"></div>
+    </section>
+
+    <button id="scrollButton" onclick="scrollToSection('selecting')">^</button>
+
+    <!-- aanroepen van Axios bibliotheek voor het maken van HTTP-requests (= AJAX-calls) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p><i>{{tekst}}</i></p>
+      <ul>
+        <li v-for="item in lijst">{{item}}</li>
+      </ul>
+
+      <table>
+        <tr v-for="naam in aNamen">
+          <td>{{naam.vnaam}}</td>
+          <td>{{naam.tv}}</td>
+          <td>{{naam.aname}}</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            tekst: "dit is een test tekst",
+            lijst: ["aaa", "bee", "cee"],
+            aLijst: [],
+            aNamen: [
+              { vnaam: "posay", tv: "", aname: "hot" },
+              { vnaam: "posaay", tv: "", aname: "cold" },
+            ],
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

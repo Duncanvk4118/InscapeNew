@@ -1,0 +1,6 @@
+Inhoud:
+
+Classes -> Database Class File
+Files -> Data Ini File + Database File
+
+Index.php

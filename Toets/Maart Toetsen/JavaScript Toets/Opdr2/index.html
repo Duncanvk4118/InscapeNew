@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maart JS Toets - 1</title>
+  </head>
+  <body>
+    <div id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+      function fStart() {
+        let url = "https://std.stegion.nl/api_bier/api.php?action=getBeers";
+        axios
+          .get(url)
+          .then((response) => {
+            let data = response.data;
+            fShow(data);
+          })
+          .catch(function (error) {
+            console.log("error=", error);
+          });
+      }
+      fStart();
+
+      function fShow(data) {
+        console.log(data);
+        let html = "";
+        html += data.sMessage + "<br/>";
+        for (let i = 0; i < data.data.length; i++) {
+          html += data.data[i].naam + ", " + data.data[i].gisting + "<br />";
+        }
+
+        document.getElementById("output").innerHTML = html;
+      }
+    </script>
+  </body>
+</html>

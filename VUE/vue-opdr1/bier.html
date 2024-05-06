@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="app">
+        <table>
+            <th>
+                <td>ID</td>
+                <td>Naam</td>
+                <td>Brouwer</td>
+                <td>Type</td>
+                <td>Gisting</td>
+                <td>Percentage</td>
+                <td>Inkoop Prijs</td>
+            </th>
+            <tr v-for="bier in biertjes">
+                <td>{{bier.id}} ) </td>
+                <td>{{bier.naam}}</td>
+                <td>{{bier.brouwer}}</td>
+                <td>{{bier.type}}</td>
+                <td>{{bier.gisting}}</td>
+                <td>{{((bier.perc) * 100)}}%</td>
+                <td> €{{bier.inkoop_prijs}}</td>
+            </tr>
+        </table>
+        </div>
+
+    <script src=https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js></script>
+    <script>
+        Vue.createApp({
+        data() {
+          return {
+            biertjes: [],
+          };
+        },
+        mounted()
+        {
+            let url = "https://std.stegion.nl/api_bier/api.php?action=getBeers";
+            axios
+                .get(url)
+                .then(response => {
+                    this.biertjes = response.data;
+                })
+        }
+      }).mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script
+      src="https://kit.fontawesome.com/4a5b4933d7.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Weather API</title>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tr>
+          <th v-for="weatherInfo in weatherList">{{weatherInfo.title}}</th>
+        </tr>
+        <tr v-for="weather in weatherTotal">
+          <td v-for="weatherInfo in weatherList">
+            {{weather[weatherInfo.field]}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      //    Vue.createApp({
+      //		data() {
+      //			return {
+      //				weatherTotal: [],
+      //				weatherList: [
+      //					{ field: 'ctn', 	title: 'Date' },
+      //				]
+      //			}
+      //		},
+      //		created() {
+      //			let url = "http://api.openweathermap.org/data/2.5/forecast?lat=52.51&lon=6.08&appid=7e9e4388a5a4dce0540edfca18c2bdc4";
+      //
+      //
+      //			fetch(url)
+      //				.then(data => data.json())
+      //                .then(data => {
+      //					console.log(data);
+      //					this.weather = data;
+      //				})
+      //		},
+      //		methods: {
+      //
+      //		}
+      //	}).mount("#app");
+      Vue.createApp({
+        data() {
+          return {
+            weatherTotal: [],
+            weatherList: [
+              { field: "dt", title: "Date" },
+              { field: "main.temp", title: "Temperature" },
+              { field: "weather[0].main", title: "Weather" },
+            ],
+          };
+        },
+        created() {
+          let url =
+            "http://api.openweathermap.org/data/2.5/forecast?lat=52.51&lon=6.08&appid=7e9e4388a5a4dce0540edfca18c2bdc4";
+
+          fetch(url)
+            .then((data) => data.json())
+            .then((data) => {
+              console.log(data);
+              this.weatherTotal = data.list;
+            });
+        },
+        methods: {},
+      }).mount("#app");
+    </script>
+  </body>
+</html>

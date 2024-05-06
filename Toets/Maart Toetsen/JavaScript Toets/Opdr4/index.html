@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maart JS Toets - 1</title>
+    <link
+      rel="stylesheet"
+      href="https://std.stegion.nl/cs_codebase/tbl_a.css"
+    />
+  </head>
+  <body>
+    <div id="output"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script>
+      function fStart() {
+        let url = "https://std.stegion.nl/api_bier/api.php?action=getBeers";
+        let url2 = "https://std.stegion.nl/api_bier/api.php?action=getBrouwers";
+        axios
+          .all([axios.get(url), axios.get(url2)])
+          .then(
+            axios.spread((response1, response2) => {
+              let data = response1.data;
+              let data2 = response2.data;
+              fShow(data, data2);
+            })
+          )
+          .catch(function (error) {
+            console.log("error=", error);
+          });
+      }
+      fStart();
+
+      function fShow(data, data2) {
+        console.log(data, data2);
+        let html = '<table class="tblA">';
+        html +=
+          "<th> Naam </th> <th> Gisting </th> <th> Percentage </th> <th> Brouwer </th>";
+        let maxLength = Math.max(data.data.length, data2.data.length);
+        for (let i = 0; i < maxLength; i++) {
+          let naam = data.data[i]?.naam;
+          let gisting = data.data[i]?.gisting;
+          let perc = data.data[i]?.perc * 100;
+          let brouwer = data2.data[i]?.naam;
+
+          perc = perc.toFixed(1);
+
+          html += "<tr>";
+          html += "<td>" + naam + "</td>";
+          html += "<td>" + gisting + "</td>";
+          html += "<td>" + perc + "% </td>";
+          html += "<td>" + brouwer + "</td>";
+          html += "</tr>";
+        }
+
+        document.getElementById("output").innerHTML += html;
+      }
+    </script>
+  </body>
+</html>
